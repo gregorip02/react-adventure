@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
-import { pokeapi } from "./services";
-import { Pokemon } from "./services/pokeapi";
+import { Pokemon, paginate } from "./service";
 
 export const PokemonList = () => {
     const [pokemons, setPokemons] = useState<Pokemon[]>([]);
 
     useEffect(() => {
-        pokeapi.paginate().then(setPokemons);
+        paginate().then(setPokemons);
     }, []);
 
     return <div>
